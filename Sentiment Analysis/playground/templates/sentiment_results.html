@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Result</title>
+</head>
+<body>
+    <h1>Sentiment Analysis Results</h1>
+    
+    <h2>Sentiment Counts</h2>
+    <ul>
+        <li>Positive: {{ sentiment_result.sentiment_counts.positive }}</li>
+        <li>Neutral: {{ sentiment_result.sentiment_counts.neutral }}</li>
+        <li>Negative: {{ sentiment_result.sentiment_counts.negative }}</li>
+    </ul>
+    
+    <h2>Sentiment Analysis Details</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Tweet</th>
+                <th>Sentiment</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tweet in sentiment_result.tweets %}
+            <tr>
+                <td>{{ tweet.tweet }}</td>
+                <td>{{ tweet.sentiment }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

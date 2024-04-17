@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #3498db, #9b59b6);
+            color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .input {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .disclaimer {
+            margin-top: 20px;
+        }
+
+        .insights {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .insights form a {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            color: #03e9f4;
+            font-size: 16px;
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: .5s;
+            margin-top: 40px;
+            letter-spacing: 4px
+          }
+          
+          .insights a:hover {
+            background: #03e9f4;
+            color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 0px #03e9f4,
+                        0 0 0px #03e9f4,
+                        0 0 0px #03e9f4,
+                        0 0 0px #03e9f4;
+          }          
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Sentiment Analysis Tool</h1>
+
+    <div class="input">
+        <div class="disclaimer">
+            <p>Utilize this tool to gather relevant tweets from Twitter based on your specified input and perform sentiment analysis to provide insights into the emotional tone of the collected tweets</p>
+            <p><strong>use this for research purpose only</strong></p>
+        </div>
+
+        <div class="insights">
+
+            <form action="{% url 'analyze_sentiment' %}" method="GET">
+                <fieldset>
+                    <label>Enter the hashtag</label>
+                    <input type="text" name="hashtag" /><br><br>
+                   
+                    <label>filter by dates</label>
+                    <input type="date" name="fdate" /><br><br>
+                    
+                    <a href="#"><input type="submit" class="submit" value="Get result"/></a>
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
